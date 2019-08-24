@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        a{
+            text-decoration: none;
+        }
+        #move{
+            margin: 0 auto;
+            color: #fff;
+            background-color:pink;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid pink;
+            border-radius: 5px;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0px;
+            top: 100px;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            position: absolute;
+            left: 100px;
+            top: 200px;
+        }
+
+
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(223, 150, 186);
+            position: absolute;
+            left: 0px;
+            top: 300px;
+        }
+
+        #box4 {
+            width: 100px;
+            height: 100px;
+            background: url("IMG_0007.GIF") no-repeat;
+            background-size: 100%;
+            position: absolute;
+            left: 0px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#"><div id="move">开始</div></a>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <script>
+        /*
+       缓动动画： 由快到慢 ：  每一次移动距离 = （目标位置-当前位置）/10
+       特点：
+           a.取整
+           b.没有误差
+
+       缓动动画封装思路：
+       1.代码冗余 ---函数
+       2.移动距离不限 -- 函数参数
+       */
+
+        var box = document.getElementById('box');
+
+
+
+        document.getElementById('move').onclick = function () {
+            animationSlow(box1, {
+                width: 200,
+                height: 200
+
+            }, function () {
+                animationSlow(box1, {
+                    width: 400,
+                    height: 400,
+                    left: 600,
+                    top: 500,
+                    // borderRadius: 200
+                }, function () {
+                    animationSlow(box1, {
+                        width: 400,
+                        height: 400,
+                        left: 600,
+                        top: 500,
+                        borderRadius: 200
+                    }, function () {
+                        animationSlow(box1, {
+                            width: 400,
+                            height: 400,
+                            left: 600,
+                            top: 500,
+                            borderRadius: 200
+                        })
+                    })
+                })
+            });
+
+            animationSlow(box2, {
+                width: 200,
+                height: 200,
+                left: 300,
+                top: 150
+            }, function () {
+                animationSlow(box2, {
+                    width: 300,
+                    height: 300,
+                    left: 300,
+                    top: 150,
+                }, function () {
+                    animationSlow(box2, {
+
+
+                        width: 300,
+                        height: 300,
+                        left: 650,
+                        top: 550,
+                        borderRadius: 150
+                    }, function () {
+                        animationSlow(box2, {
+                            width: 300,
+                            height: 300,
+                            left: 650,
+                            top: 550,
+                            borderRadius: 150
+                        })
+                    })
+                })
+            });
+            animationSlow(box3, {
+                width: 200,
+                height: 200,
+                left: 300,
+                top: 150
+            }, function () {
+                animationSlow(box3, {
+                    width: 300,
+                    height: 300,
+                    left: 200,
+                    top: 250,
+                }, function () {
+                    animationSlow(box3, {
+                        width: 200,
+                        height: 200,
+                        left: 700,
+                        top: 600,
+                        borderRadius: 100
+                    }, function () {
+                        animationSlow(box3, {
+                            width: 200,
+                            height: 200,
+                            left: 700,
+                            top: 600,
+                            borderRadius: 100
+                        })
+                    })
+                })
+            });
+            animationSlow(box4, {
+                width: 200,
+                height: 200,
+                left: 300,
+                top: 150
+            }, function () {
+                animationSlow(box4, {
+                    width: 300,
+                    height: 300,
+                    left: 200,
+                    top: 250,
+                }, function () {
+                    animationSlow(box4, {
+                        width: 100,
+                        height: 100,
+                        left: 750,
+                        top: 650,
+                        borderRadius: 50
+                    }, function () {
+                        animationSlow(box4, {
+                            width: 200,
+                            height: 200,
+                            left: 700,
+                            top: 600,
+                            borderRadius: 100
+                        }, function () {
+                            animationSlow(box3, {
+                                width: 300,
+                                height: 300,
+                                left: 650,
+                                top: 550,
+                                borderRadius: 150
+                            }, function () {
+                                animationSlow(box2, {
+                                    width: 400,
+                                    height: 400,
+                                    left: 600,
+                                    top: 500,
+                                    borderRadius: 200
+                                }, function () {
+                                    animationSlow(box1, {
+                                        width: 500,
+                                        height: 500,
+                                        left: 550,
+                                        top: 450,
+                                        borderRadius: 250
+                                    }, function () {
+                                        animationSlow(box4, {
+                                            width: 50,
+                                            height: 50,
+                                            left: 780,
+                                            top: 680
+                                        }, function () {
+                                            animationSlow(box3, {
+                                                width: 0,
+                                                height: 0,
+                                                left: 800,
+                                                top: 700,
+                                            }, function () {
+                                                animationSlow(box2, {
+                                                    width: 0,
+                                                    height: 0,
+                                                    left: 800,
+                                                    top: 700
+                                                }, function () {
+                                                    animationSlow(box1, {
+                                                        width: 0,
+                                                        height: 0,
+                                                        left: 800,
+                                                        top: 700
+                                                    })
+                                                })
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            });
+        };
+
+
+
+        function animationSlow(ele, attrs, fn) {
+
+            clearInterval(ele.timeID);
+
+            ele.timeID = setInterval(function () {
+
+                var isAllOk = true;
+
+                for (var key in attrs) {
+
+                    var attr = key;
+
+                    var target = attrs[key];
+
+                    var current = parseInt(getStyle(ele, attr));
+                    var step = (target - current) / 10;
+
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+                    current += step;
+
+                    ele.style[attr] = current + 'px';
+
+                    if (current != target) {
+                        isAllOk = false;
+                    };
+
+                }
+                if (isAllOk) {
+                    clearInterval(ele.timeID)
+                    if (typeof fn == 'function') {
+                        fn();
+                    }
+                }
+            }, 20);
+        }
+
+        function getStyle(ele, attribute) {
+            if (window.getComputedStyle) {
+                var style = window.getComputedStyle(ele, null);
+                return style[attribute];
+            } else {
+                return ele.currentStyle[arrribute];
+            }
+        }
+    </script>
+
+</body>
+
+</html>
